@@ -45,7 +45,7 @@
 </nav>
 	
 	<?php 
-		$search = $_GET["search"]; 
+		$search = $_POST["search"]; 
 		//system("hello $search", $output);
 		//print_r($output);
 		// descriptor array
@@ -56,8 +56,7 @@
 			);
 			 
 			// command to invoke markup engine
-			$cmd = "AlgoritmaBFS-DFS\AlgoritmaBFS-DFS\bin\Debug\AlgoritmaBFS-DFS.exe";
-			$pipes = array();
+			$cmd = "AlgoritmaBFS-DFS\AlgoritmaBFS-DFS\bin\Release\AlgoritmaBFS-DFS.exe";
 			// spawn the process
 			$p = proc_open($cmd, $desc, $pipes);
 			 
@@ -68,25 +67,21 @@
 			//fclose($pipes[0]);
 			
 			if (is_resource($p)) {
-				echo stream_get_contents($pipes[1]);
 				fwrite($pipes[0], $search);
-				echo stream_get_contents($pipes[1]);
-				fwrite($pipes[0], "D:\\Semester IV");
-				fwrite($pipes[0], "l");
+				fwrite($pipes[0], "D:\Semester IV");
 				fclose($pipes[0]);
 			}
 
-			//while (!feof($pipes[1])) {
-				//echo stream_get_contents($pipes[1]);
-			//}	
+			while (!feof($pipes[1])) {
+				echo stream_get_contents($pipes[1]);
+			}	
 
 			fclose($pipes[1]);
 			// read the output from the engine
 			//$html = stream_get_contents($pipes[1]);
 			 
 			// all done! Clean up
-			$return_value = proc_close($p);
-			echo $return_value;
+			proc_close($p);
 			//echo $html;
 	?><br>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

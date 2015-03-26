@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>dicari!</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -47,13 +47,13 @@
 
 	<div class="row">
 	<div class="col-md-offset-5">
-	<img src="img/hmif.jpg" width="200px">
+	<img src="img/Croissant1.jpg" width="250px">
 	</div>
 	<div class="col-md-6 col-md-offset-3">
     <h1>dicari!</h1>
 	</div>
 	</div>
-		<form action="welcome_get.php" method="get">
+		<form action="welcome_get.php" method="post">
 		<div class="row">
 		<div class="col-md-3">
 		</div><!-- col-md-3 -->
