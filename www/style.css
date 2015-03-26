@@ -1,0 +1,21 @@
+.artikel {
+	background:#00BFFF;
+	width:full;
+}
+
+.judul {
+	color: #E8EF21;
+}
+
+.navbar{
+
+	background:#adff5c;
+}
+.active{
+	background-color:#456625; !important
+}
+
+.panel-heading{
+
+	background-color:#456625;
+}
