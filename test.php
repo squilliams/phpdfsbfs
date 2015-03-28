@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 <head>
     <meta charset="utf-8">
@@ -11,8 +10,8 @@
     <title>dicari!</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+	<link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/full.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,7 +22,7 @@
   <body>
   
   <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid full">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -32,7 +31,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Home</a>
+      <a class="navbar-brand" href="test.php">Home</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,12 +46,19 @@
 
 	<div class="row">
 	<div class="col-md-offset-5">
-	<img src="img/Croissant1.jpg" width="250px">
+	<div class="row">
+		<div class="col-sm-6">
+ 
+    <img src="img/Croissant1.jpg" alt="img" width="250px">
+ 
+		</div>
 	</div>
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-3">
     <h1>dicari!</h1>
 	</div>
 	</div>
+	
+	<div class="container">
 		<form action="welcome_get.php" method="post">
 		<div class="row">
 		<div class="col-md-3">
@@ -69,6 +75,7 @@
 		</div><!-- /.col-md-6 -->
 		</div><!-- /.row -->
 		</form>
+	</div>
 
 		<!--form action="welcome_get.php" method="get">
 		Name: <input type="text" name="name"><br>

@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>dicari!</title>
+    <title>nyolong</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/full.css" rel="stylesheet">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -31,26 +31,36 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="test.php">Home</a>
+      <a class="navbar-brand" href="stima2.php">nyolong</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#">Setting <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Perihal</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+	<div class="page-header">
+		<h1>nyolong <small>hasil pencarian</small></h1>
+	</div>
 	<div class="col-md-6 col-md-offset-2" id="outputcsharp" >
+	<form>
+		<fieldset disabled>
+		<div class="form-group col-xs-4">
+		<label for="disabledTextInput"> Kata</label>
+		<input type="text" class="form-control" placeholder=<?php echo $_POST["search"] ?> readonly>
+		<label for="disabledTextInput">Mode Pencarian</label>
+		<input type="text" class="form-control" placeholder=<?php echo $_POST["mode"] ?> readonly>
+		<label for="disabledTextInput">Direktori</label>
+		<input type="text" class="form-control" placeholder=<?php echo $_POST["direktori"] ?> readonly>
+		</div>	
+		</fieldset>
+	</form>
 	<?php 
-		$search = $_POST["search"]; 
+				$search = $_POST["search"]; 
+				$pencarian = $_POST["mode"];
+				
 				// Turn off output buffering
 				ini_set('output_buffering', 'off');
 				// Turn off PHP output compression
 				ini_set('zlib.output_compression', false);
-
+				ob_start();
 				while (@ob_end_flush());
 				ini_set('implicit_flush', true);
 				ob_implicit_flush(true);
@@ -62,12 +72,13 @@
 				flush();
 				 
 				$cmd = "AlgoritmaBFS-DFS\AlgoritmaBFS-DFS\bin\Debug\AlgoritmaBFS-DFS.exe";
-				$dir = "D:\TPB";
-				exec("$cmd $search $dir", $output);
+				$dir0 = $_POST["direktori"];
+				$dir = "\"" . $dir0 . "\"";
+				exec("$cmd $search $dir $pencarian", $output);
 
-				for($x = 1; $x < count($output); $x++) {					
-						echo $output[$x];
-						echo "<br>";
+				for($x = 1; $x < count($output); $x++) {
+							echo $output[$x];
+							echo "<br>";
 				}
 				flush();
 
