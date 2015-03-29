@@ -88,19 +88,19 @@
         <div class="modal-body">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-4">Wisnu</div>
+              <div class="col-md-4 col-md-offset-3"><a href="mailto:13513029@std.stei.itb.ac.id">Wisnu</a></div>
               <div class="col-md-4">13513029</div>
             </div>
             <div class="row">
-              <div class="col-md-4">Bimo</div>
+              <div class="col-md-4 col-md-offset-3"><a href="mailto:13513075@std.stei.itb.ac.id">Bimo</a></div>
               <div class="col-md-4">13513075</div>
             </div>
             <div class="row">
-              <div class="col-md-4">Ahmad Riz(d)aputra</div>
+              <div class="col-md-4 col-md-offset-3"><a href="mailto:13513027@std.stei.itb.ac.id">Ahmad Riz(d)aputra</a></div>
 			  <div class="col-md-4">13513027</div>
             </div>
             <div class="row">
-              <div class="col-sm-9">nyolong</div>
+              <div class="text-center text-success"><h2><b>nyolong</b></h2></div>
             </div>
           </div>
         </div>

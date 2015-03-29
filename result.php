@@ -39,6 +39,9 @@
 	<div class="page-header">
 		<h1>nyolong <small>hasil pencarian</small></h1>
 	</div>
+	<button type="button" class="btn btn-primary btn-warning center-block" data-toggle="modal" data-target="#Modal1">
+					Perihal
+	</button>
 	<div class="col-md-6 col-md-offset-2" id="outputcsharp" >
 	<form>
 		<fieldset disabled>
@@ -52,7 +55,41 @@
 		</div>	
 		</fieldset>
 	</form>
+	
+	<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="gridSystemModalLabel">Perihal</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4 col-md-offset-3"><a href="mailto:13513029@std.stei.itb.ac.id">Wisnu</a></div>
+              <div class="col-md-4">13513029</div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-3"><a href="mailto:13513075@std.stei.itb.ac.id">Bimo</a></div>
+              <div class="col-md-4">13513075</div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-3"><a href="mailto:13513027@std.stei.itb.ac.id">Ahmad Riz(d)aputra</a></div>
+			  <div class="col-md-4">13513027</div>
+            </div>
+            <div class="row">
+              <div class="text-center text-success"><h2><b>nyolong</b></h2></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 	<?php 
+		
 				$search = $_POST["search"]; 
 				$pencarian = $_POST["mode"];
 				
@@ -60,6 +97,7 @@
 				ini_set('output_buffering', 'off');
 				// Turn off PHP output compression
 				ini_set('zlib.output_compression', false);
+				ini_set('max_execution_time', 300);
 				ob_start();
 				while (@ob_end_flush());
 				ini_set('implicit_flush', true);
@@ -75,10 +113,13 @@
 				$dir0 = $_POST["direktori"];
 				$dir = "\"" . $dir0 . "\"";
 				exec("$cmd $search $dir $pencarian", $output);
-
-				for($x = 1; $x < count($output); $x++) {
-							echo $output[$x];
-							echo "<br>";
+		
+				for($x = 1; $x < count($output); $x++) {	
+							echo "<h4>";
+							$search1 = array($search, "~^");
+							$replacement = array("<strong>".$search."</a></strong>", "</a></h4><mark>...");
+							echo str_replace($search1 , $replacement, $output[$x]);
+							echo "...</mark><br>";
 				}
 				flush();
 
